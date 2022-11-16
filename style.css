@@ -1,0 +1,96 @@
+@import url('https://fonts.cdnfonts.com/css/the-romance');
+
+body{
+    margin: 0;
+    overflow: hidden;
+}
+.wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+}            
+img {
+    position: absolute;
+    z-index: 3;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+}
+/* HEART */
+canvas {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* TEXT */
+.content{
+    z-index: 2;
+    position: absolute;
+    margin-top: 2%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    font-family: 'The Romance', sans-serif;
+}
+.title-word{
+    animation: color-animation 4s linear infinite;
+    font-size: 50px;
+}
+.title-word-1 {
+--color-1: #fc8b1ac7;
+--color-2: #fea222a4;
+--color-3: #fdb644be;
+}
+
+.title-word-2 {
+--color-1: #e20288a7;
+--color-2: #c500a1ac;
+--color-3: #fe3cdaac;
+}
+
+.title-word-3 {
+--color-1: #f74444d9;
+--color-2: #f34e4ede;
+--color-3: #f36fa6da;
+}
+
+@keyframes color-animation {
+0%    {color: var(--color-1)}
+32%   {color: var(--color-1)}
+33%   {color: var(--color-2)}
+65%   {color: var(--color-2)}
+66%   {color: var(--color-3)}
+99%   {color: var(--color-3)}
+100%  {color: var(--color-1)}
+}
+
+/* MOUSE */
+span{
+    position: absolute;
+    z-index: 3;
+    background: url(./heart.png);
+    pointer-events: none;
+    transform: translate(-50%,-50%);
+    background-size: cover;
+    animation: animate 5s linear infinite;
+}
+@keyframes animate{
+    0%{
+        transform:  translate(-110%,-50%);
+        opacity: 1;
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-1000%);
+        opacity: 1;
+        filter: hue-rotate(720deg);
+    }
+}
